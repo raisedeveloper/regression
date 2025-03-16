@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Sales result</h1>
+        
+        <nav class="nav-menu">
+            <a href="/history">History</a>
+        </nav>
+        
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+        
+        <form action="/result" method="POST">
+            <div class="form-group">
+                <label class="nameColor" for="gender">Gender</label>
+                <div class="radio-group">
+                    <label for="male">Male</label>
+                    <input type="radio" class="radioBtn" id="male" name="gender" value="Male" required>
+                    <div class="divider"></div>
+                    <label for="female">Female</label>
+                    <input type="radio" class="radioBtn" id="female" name="gender" value="Female" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="nameColor" for="age">Age</label>
+                <div class="radio-group">
+                    <label for="below20">미성년자</label>
+                    <input type="radio" class="radioBtn" id="below20" name="age" value="Below 20" required>
+                    <div class="divider"></div>
+            
+                    <label for="from20to29">20대</label>
+                    <input type="radio" class="radioBtn" id="from20to29" name="age" value="From 20 to 29" required>
+                    <div class="divider"></div>
+            
+                    <label for="from30to39">30대</label>
+                    <input type="radio" class="radioBtn" id="from30to39" name="age" value="From 30 to 39" required>
+                    <div class="divider"></div>
+            
+                    <label for="40andAbove">40대 이상</label>
+                    <input type="radio" class="radioBtn" id="40andAbove" name="age" value="40 and above" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="nameColor" for="purchase">Purchase</label>
+                <div>
+                    <input type="text" id="purchase" name="purchase" required>
+                </div>
+            </div>
+
+            <button type="submit">Submit</button>
+        </div>
+            
+        </form>
+    </div>
+</body>
+</html>

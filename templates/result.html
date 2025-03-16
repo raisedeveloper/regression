@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey 결과</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Survey 결과</h1>
+        
+        <nav class="nav-menu">
+            <a href="/">등록 하기</a>
+            <a href="/history">이력 보기</a>
+        </nav>
+        
+        <div class="result-box">
+            <p>성별: <strong>{{ gender }}</strong></p>
+            <p>연령: <strong>{{ age }}</strong></p>
+            <p>기호 상품: <strong>{{ purchase }}</strong></p>
+            <p class="success-message">결과가 데이터베이스에 저장되었습니다.</p>
+        </div>
+        
+        <a href="/" class="back-btn">다시 하기</a>
+    </div>
+</body>
+</html>

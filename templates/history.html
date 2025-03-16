@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Sales result</h1>
+        
+        <nav class="nav-menu">
+            <a href="/">다시 하기</a>
+            <a href="/history" class="active">이력 보기</a>
+        </nav>
+        
+        {% if records %}
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>성별</th>
+                        <th>나이</th>
+                        <th>상품</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for record in records %}
+                    <tr>
+                        <td>{{ record.GENDER }}</td>
+                        <td>{{ record.AGE }}</td>
+                        <td>{{ record.PURCHASE.replace(";", ", ") }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="no-data">
+                <p>저장된 content 기록이 없습니다.</p>
+            </div>
+        {% endif %}
+        
+        <a href="/" class="back-btn">돌아가기</a>
+    </div>
+</body>
+</html>
